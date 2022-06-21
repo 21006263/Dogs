@@ -64,19 +64,24 @@ export default function Dog_Form() {
     e.preventDefault();
 
     setObjForm({
+
+
+
+
       ...objForm,
-      temperaments: [...objForm.temperaments, e.target.value],
-    });
+     temperaments: [...objForm.temperaments, e.target.value],
+
+   });
   }
 
-  function handleDelete(el) { // para borrar un temp ya agregado
+  function handleDelete(e) { // para borrar un temp ya agregado ! borrado implicito
     setObjForm({
       ...objForm,
-      temperaments: objForm.temperaments.filter((t) => t !== el),
+      temperaments: objForm.temperaments.filter((t) => t !== e),
     });
   }
 
-  function clearForm() { // limpia el Form y los errores, cdo se quiere crear otra raza
+  function clearForm() { //! limpia el Form y los errores, cdo se quiere crear otra raza
     setObjForm({
       name: "",
       height: "",

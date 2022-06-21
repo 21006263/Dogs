@@ -19,7 +19,7 @@ textarea:invalid {
 .divgral {
 
         min-height: 100vmin;
-        background-image:url("../../images/hh.jpg");
+        background-color: darkblue;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;

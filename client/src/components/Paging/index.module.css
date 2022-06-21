@@ -14,9 +14,12 @@
 	margin: 0.5rem;
 	color:black;
 	background-color: #eeeeee;
-	opacity: 0.5;
-	border: 2px solid black;
-	border-radius: 5rem;
+
+	border: 1px solid black;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 	cursor:pointer;
 
 

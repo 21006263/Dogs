@@ -1,26 +1,53 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDogDetail } from "../../actions";
 import Styles from "./index.module.css";
+import Loader from "./Loader";
 
 
 export default function DogDetail() { //renderiza la card detallada de una raza
-  const { id } = useParams();//-->la obtengo con este hook, porqyue en el rout de mi App le especifico "/dogDetail/:id"
+
+  const { id } = useParams();
+  const [Loadin, setLoadin] = useState (false)//-->la obtengo con este hook, porqyue en el rout de mi App le especifico "/dogDetail/:id"
 
   //console.log("ID DEL DOG: ", id);
   const dispatch = useDispatch();
 
-  useEffect(() => { //llena el estado Detail despachando esa fc=> el estado es 1 solo obj
-    dispatch(getDogDetail(id));
-  } , [dispatch, id]);
+  // useEffect(() => { //llena el estado Detail despachando esa fc=> el estado es 1 solo obj
+  //   dispatch(getDogDetail(id));
+  // } , [dispatch, id]);
+
+
+  useEffect(() => {
+    setLoadin(true)
+    setTimeout(() =>{
+      setLoadin(false)
+    }, 1000)
+    dispatch(getDogDetail(id))
+    // return () => {
+    //     dispatch(clearDetails());
+    // }
+},[dispatch, id]);
+
+
+
+
 
   const myDog = useSelector((state) => state.detail); //traigo el estado detail
 
-
-  return (
+// funtion delete
+  return ( 
+    <div> {
+    Loadin ?
+ <Loader
+ size={150}
+ Loadin={Loadin}
+ 
+ />
+:
 
     <div className={Styles.divgral}>
       {myDog ? (
@@ -58,7 +85,10 @@ export default function DogDetail() { //renderiza la card detallada de una raza
         <h3>"No se encontró esa raza"</h3>
       )}
     </div>
+    }
+    </div>
   );
+ 
 }
 
 

@@ -15,10 +15,10 @@ function rootReducer(state = initialState, action) {
 				allDogs: action.payload, // aca crea otra copia de dogs, q nunca se va a tocar(p/los filtrados)
 			};
 
-		case "GET-TEMPERAMENT":
-			return {
-				...state,
-				temps: action.payload,
+			case "GET-TEMPERAMENT":
+				return {
+				  ...state,
+				  temps: action.payload,
 			};
 
 
@@ -58,7 +58,7 @@ function rootReducer(state = initialState, action) {
 			}
 			return {
 				...state,
-				dogs: tempFilter, //guardo los dogs filtrados en el estado filtrado, no toco allDogs
+				dogs: tempFilter //guardo los dogs filtrados en el estado filtrado, no toco allDogs
 			};
 
 
@@ -116,7 +116,7 @@ function rootReducer(state = initialState, action) {
 				});
 			return {
 				...state,
-				dogs: dogsOr,
+				dogs: dogsOr
 			};
 
 
@@ -156,7 +156,7 @@ function rootReducer(state = initialState, action) {
 			}
 			return {
 				...state,
-				dogs: dogsW,
+				dogs: dogsW
 			};
 
 

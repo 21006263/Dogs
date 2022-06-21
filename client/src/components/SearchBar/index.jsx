@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { searchByName } from "../../actions";
 import Styles from "./index.module.css";
 
+
 export default function SearchBar() { //busqueda de raza x name (es un includes en el back)
 
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function SearchBar() { //busqueda de raza x name (es un includes 
         value={name}
         onChange={(e) => handleInputChange(e)}
       />
-      <input className={Styles.boton} type="submit" value="Buscar" />
+      <input className={Styles.boton} type="submit" value="" />
     </form>
   );
 }
